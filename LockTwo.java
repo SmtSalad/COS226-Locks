@@ -1,15 +1,13 @@
-public class LockTwo implements Lock{
+public class LockTwo{
     private volatile int victim;
 
-    @Override
-    public void lock() {
-        int i = (int)Thread.currentThread().threadId();
-        victim = i;
 
+    public void lock(int i) {
+        victim = i;
         while (victim == i) {
         }
     }
-@Override
+
     public void unlock() {
     }
 }
